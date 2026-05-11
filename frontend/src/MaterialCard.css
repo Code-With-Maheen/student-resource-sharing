@@ -1,0 +1,164 @@
+.material-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.material-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.material-card h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.material-card p {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.material-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+.visibility-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.visibility-badge.public,
+.public {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.visibility-badge.private,
+.private {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.tags-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.tag {
+  background: #eef2ff;
+  color: #4338ca;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.download-btn,
+.save-btn {
+  width: 100%;
+  padding: 11px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.download-btn {
+  background: #111827;
+  color: white;
+}
+
+.download-btn:hover {
+  background: #374151;
+}
+
+.save-btn {
+  background: #5b5cf0;
+  color: white;
+}
+
+.save-btn:hover {
+  background: #4b4ce0;
+}
+
+.save-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+.owner-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.edit-btn,
+.visibility-btn,
+.delete-btn {
+  width: 100%;
+  padding: 11px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.edit-btn {
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+.visibility-btn {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.delete-btn {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.edit-btn:hover {
+  background: #e0e7ff;
+}
+
+.visibility-btn:hover {
+  background: #e5e7eb;
+}
+
+.delete-btn:hover {
+  background: #fecaca;
+}
+.save-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+.material-card {
+  transition: all 0.2s ease;
+}
+
+.material-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}

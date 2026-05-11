@@ -1,0 +1,291 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+  color: #111827;
+}
+
+.user-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+.user-sidebar {
+  width: 250px;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  padding: 24px 18px;
+}
+
+.user-logo-box h2 {
+  color: #5b5cf0;
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+
+.user-logo-box p {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.user-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.user-nav-item {
+  border: none;
+  background: transparent;
+  text-align: left;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  color: #374151;
+  transition: 0.2s ease;
+}
+
+.user-nav-item:hover {
+  background: #f3f4f6;
+}
+
+.user-nav-item.active {
+  background: linear-gradient(135deg, #5b5cf0, #7c72ff);
+  color: white;
+  font-weight: 600;
+}
+
+.user-main-content {
+  flex: 1;
+  padding: 28px;
+}
+
+.user-topbar {
+  margin-bottom: 24px;
+}
+
+.user-topbar h1 {
+  font-size: 34px;
+  margin-bottom: 6px;
+}
+
+.user-topbar p {
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.user-hero-card {
+  background: linear-gradient(135deg, #5b5cf0, #7c72ff);
+  color: white;
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+.user-hero-card h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.user-hero-card p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.user-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.user-stat-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.user-stat-card h3 {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.user-stat-card p {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.user-sections-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.user-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.user-card h3 {
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+.user-action-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.profile-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.profile-card h1 {
+  margin-bottom: 16px;
+}
+
+.profile-card p {
+  margin-bottom: 10px;
+  color: #374151;
+}
+
+.primary-btn,
+.secondary-btn,
+.download-btn {
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, #5b5cf0, #7c72ff);
+  color: white;
+}
+
+.secondary-btn {
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+.muted-text {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* MATERIALS SECTION */
+
+.materials-section {
+  margin-top: 24px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.materials-section h2 {
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.materials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.material-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.material-card h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.material-card p {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.material-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+.tags-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.tag {
+  background: #eef2ff;
+  color: #4338ca;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.download-btn {
+  background: #111827;
+  color: white;
+  width: 100%;
+}
+
+.download-btn:hover {
+  background: #374151;
+}
+
+@media (max-width: 1000px) {
+  .materials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .user-sidebar {
+    display: none;
+  }
+
+  .user-main-content {
+    padding: 18px;
+  }
+
+  .user-stats-grid,
+  .user-sections-grid,
+  .materials-grid {
+    grid-template-columns: 1fr;
+  }
+}

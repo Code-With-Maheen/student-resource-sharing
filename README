@@ -1,0 +1,695 @@
+Bilkul. Ab tumhare current project ko dekhte hue, yeh **practical development plan** hai — beginner-friendly, step by step, aur tumhare existing FastAPI + React + MongoDB setup ke hisaab se.
+
+# Project goal
+
+**Study Material Sharing Platform**
+
+* normal users signup/signin kar sakein
+* admin alag signin kare
+* admin dashboard me real users show hon
+* admin user CRUD kar sake
+* baad me materials CRUD add ho
+
+---
+
+# Phase 1 — Auth system
+
+Ye tum almost kar chuki ho.
+
+## Frontend
+
+* landing page
+* signup page
+* user signin page
+* admin signin page
+
+## Backend
+
+* `POST /signup`
+* `POST /signin`
+* `POST /admin/signin`
+
+## Database
+
+`users` collection me fields:
+
+```json
+{
+  "fullName": "",
+  "email": "",
+  "phone": "",
+  "password": "",
+  "role": "user",
+  "status": "active"
+}
+```
+
+## Rules
+
+* signup par role always `"user"`
+* admin manual DB se banta hai
+* admin signin par backend role verify karega
+
+---
+
+# Phase 2 — Admin dashboard (users management)
+
+Ye ab tumhara current next step hai.
+
+## Frontend pages
+
+* `AdminDashboard.jsx`
+* `AdminDashboard.css`
+
+## Admin dashboard me kya ho
+
+* total users card
+* registered users table
+* edit button
+* delete button
+* add user button
+* modal for add/edit
+
+## Backend routes
+
+* `GET /users`
+* `POST /users`
+* `PUT /users/{user_id}`
+* `DELETE /users/{user_id}`
+
+## Important rule
+
+* dashboard me **admin khud show na ho**
+* isliye `GET /users` me filter:
+
+```python
+{"role": {"$ne": "admin"}}
+```
+
+---
+
+# Phase 3 — Admin CRUD complete
+
+Ab users CRUD ko proper bana do.
+
+## Add user
+
+Admin dashboard se new user add kare:
+
+* full name
+* email
+* phone
+* password
+* role
+* status
+
+## Edit user
+
+Admin user ka:
+
+* full name
+* email
+* phone
+* role
+* status
+  update kar sake
+
+## Delete user
+
+Admin user delete kar sake
+
+## Backend validation
+
+* duplicate email allowed na ho
+* admin admin ko delete na kare
+* invalid id handle ho
+
+---
+
+# Phase 4 — User dashboard
+
+Auth aur admin ke baad user side build karo.
+
+## User dashboard pages
+
+* welcome/dashboard
+* profile
+* my uploads
+* saved materials
+
+## Features
+
+* user apna profile dekhe
+* apne uploaded materials dekhe
+* saved items dekhe
+
+Abhi dummy bhi ho sakta hai, baad me backend connect karna.
+
+---
+
+# Phase 5 — Study materials module
+
+Project ka main business feature ye hai.
+
+## Material fields
+
+```json
+{
+  "title": "",
+  "description": "",
+  "subject": "",
+  "semester": "",
+  "tags": [],
+  "fileUrl": "",
+  "uploadedBy": "",
+  "downloadsCount": 0,
+  "likes": [],
+  "createdAt": ""
+}
+```
+
+## Backend routes
+
+* `POST /materials`
+* `GET /materials`
+* `GET /materials/{id}`
+* `PUT /materials/{id}`
+* `DELETE /materials/{id}`
+
+## Frontend pages
+
+* upload material page
+* explore materials page
+* material detail page
+* my materials page
+
+---
+
+# Phase 6 — Admin materials management
+
+Jab materials aa jayein, admin ko bhi materials manage karne do.
+
+## Admin kya karega
+
+* all materials dekhe
+* inappropriate material delete kare
+* optional approve/reject system
+
+## Routes
+
+* `GET /admin/materials`
+* `DELETE /admin/materials/{id}`
+* optional `PATCH /admin/materials/{id}/approve`
+
+---
+
+# Phase 7 — Search and filters
+
+Ab platform useful lagne lagega.
+
+## Explore page pe
+
+* search by title
+* filter by subject
+* filter by semester
+* sort by latest
+
+---
+
+# Phase 8 — Save, like, comment
+
+Ye interaction features hain.
+
+## Backend
+
+* `POST /materials/{id}/save`
+* `POST /materials/{id}/like`
+* `POST /materials/{id}/comment`
+
+## Frontend
+
+* save button
+* like button
+* comments section
+
+---
+
+# Phase 9 — Security improvement
+
+Abhi tum basic learning phase me ho, lekin next major upgrade ye hoga:
+
+## Abhi
+
+* plain password
+* no JWT
+* no protected routes
+
+## Baad me karna
+
+* password hashing
+* JWT authentication
+* protected admin routes
+* current user session
+
+---
+
+# Recommended folder structure
+
+## Frontend
+
+```bash
+src/
+  App.jsx
+  App.css
+  signup.jsx
+  signup.css
+  signin.jsx
+  signin.css
+  AdminSignin.jsx
+  AdminSignin.css
+  AdminDashboard.jsx
+  AdminDashboard.css
+```
+
+## Backend
+
+Abhi single `main.py` theek hai.
+Baad me split karna:
+
+```bash
+fastapi_backend/
+  main.py
+  routes/
+    auth_routes.py
+    admin_routes.py
+    material_routes.py
+```
+
+---
+
+# Immediate to-do list
+
+Abhi tumhe isi order me kaam karna chahiye:
+
+## Step 1
+
+Backend `main.py` fix and stable run
+
+## Step 2
+
+Normal user login working
+
+## Step 3
+
+Admin login working
+
+## Step 4
+
+Admin dashboard real users show kare
+
+## Step 5
+
+Edit + delete working
+
+## Step 6
+
+Add user working
+
+## Step 7
+
+User side dashboard
+
+## Step 8
+
+Materials CRUD
+
+---
+
+# What not to do right now
+
+Abhi ye cheezen avoid karo:
+
+* JWT
+* password reset
+* heavy dashboard templates
+* charts
+* analytics
+* too many roles
+* complex routing libraries if confused
+
+Pehle core CRUD stable banao.
+
+---
+
+# Final simple roadmap
+
+## Week 1
+
+* signup
+* signin
+* admin signin
+* DB roles
+
+## Week 2
+
+* admin dashboard
+* users list
+* add/edit/delete users
+
+## Week 3
+
+* materials upload
+* explore page
+* my materials
+
+## Week 4
+
+* save/like/comment
+* filters
+* polish UI
+
+---
+
+# Current status based on your work
+
+Tum yahan ho:
+
+* landing page done
+* signup done
+* signin done
+* admin signin UI done
+* admin dashboard UI started
+* backend routes partially done
+
+Next exact target:
+**Admin dashboard me real Add User + Edit + Delete fully working**
+
+Agar chaho, next main is plan ko **task checklist format** me bana deta hoon jise tum one by one tick kar sako.
+
+
+
+
+Bilkul — inhi features ko build karna hai. Tumhari uploaded feature list ke basis par yeh **clear implementation roadmap** hai. 
+
+# Phase 1 — Authentication
+
+Ye sabse pehle complete karo.
+
+## Features
+
+* signup
+* user signin
+* admin signin
+* role-based access
+* profile basic data
+
+## Status
+
+* signup done
+* signin done
+* admin signin done
+* role logic partial done
+
+## Next finish
+
+* admin route protection
+* logout
+* better session handling later
+
+---
+
+# Phase 2 — Admin User CRUD
+
+Abhi tum isi phase me ho.
+
+## Features
+
+* admin dashboard
+* total users count
+* registered users table
+* add user
+* edit user
+* delete user
+* admin khud table me show na ho
+
+## Backend routes
+
+* `GET /users`
+* `POST /users`
+* `PUT /users/{id}`
+* `DELETE /users/{id}`
+
+## Frontend files
+
+* `AdminDashboard.jsx`
+* `AdminDashboard.css`
+
+## Priority
+
+Ye phase fully complete karo before moving ahead.
+
+---
+
+# Phase 3 — User Dashboard
+
+Admin ke baad normal user side banao.
+
+## Features
+
+* welcome/dashboard
+* user profile
+* my uploads
+* saved materials
+* logout
+
+## UI sections
+
+* sidebar or top nav
+* quick stats
+* recent uploads
+* shortcuts
+
+---
+
+# Phase 4 — Upload System
+
+Yeh project ka main core feature hai. 
+
+## Features
+
+* upload notes/pdf
+* title
+* description
+* subject
+* semester
+* tags
+* file upload
+
+## Backend routes
+
+* `POST /materials`
+* `GET /materials`
+* `GET /materials/{id}`
+* `PUT /materials/{id}`
+* `DELETE /materials/{id}`
+
+## Database fields
+
+* title
+* description
+* subject
+* semester
+* tags
+* fileUrl
+* uploadedBy
+* createdAt
+
+---
+
+# Phase 5 — Explore Materials
+
+Yahan users saara content browse karenge. 
+
+## Features
+
+* all materials grid/list
+* search by title
+* filter by subject
+* filter by semester
+* file type filter
+* sort latest/popular
+
+## Page
+
+* `/explore`
+
+---
+
+# Phase 6 — Material Detail Page
+
+Single material view.
+
+## Features
+
+* title
+* subject
+* semester
+* uploaded by
+* description
+* tags
+* preview/file info
+* download button
+* like
+* save
+* comments
+
+## Page
+
+* `/material/:id`
+
+---
+
+# Phase 7 — My Materials
+
+User apne uploads manage kare.
+
+## Features
+
+* own uploaded materials list
+* edit material
+* delete material
+* view details
+
+## Page
+
+* `/my-materials`
+
+---
+
+# Phase 8 — Saved Materials
+
+User bookmarked material dekhe. 
+
+## Features
+
+* save/bookmark
+* saved list page
+
+## Page
+
+* `/saved`
+
+---
+
+# Phase 9 — Interaction Features
+
+Ye engagement features hain. 
+
+## Features
+
+* like material
+* save material
+* comment on material
+
+## Backend
+
+* `POST /materials/{id}/like`
+* `POST /materials/{id}/save`
+* `POST /materials/{id}/comment`
+
+---
+
+# Phase 10 — Admin Material Control
+
+Admin content bhi manage kare.
+
+## Features
+
+* all materials list
+* delete inappropriate material
+* optional approve/reject
+
+## Later routes
+
+* `GET /admin/materials`
+* `DELETE /admin/materials/{id}`
+
+---
+
+# Best build order
+
+Ye order follow karo:
+
+## 1
+
+Auth complete
+
+## 2
+
+Admin user CRUD complete
+
+## 3
+
+User dashboard basic
+
+## 4
+
+Material upload CRUD
+
+## 5
+
+Explore page
+
+## 6
+
+Material detail page
+
+## 7
+
+Saved / like / comment
+
+## 8
+
+Admin material management
+
+---
+
+# Minimum working version
+
+Agar tum internship-level working project jaldi complete karna chahti ho, to pehle ye banao: 
+
+* auth
+* admin user CRUD
+* upload material
+* explore materials
+* download
+* profile
+
+Uske baad:
+
+* likes
+* comments
+* saved items
+* filters
+
+---
+
+# Current practical target
+
+Abhi tumhara exact target hona chahiye:
+
+## Complete now
+
+* admin login stable
+* admin dashboard real data
+* add user
+* edit user
+* delete user
+
+## Then start
+
+* material model
+* upload page
+* materials API
+
+Agar chaho, main ab isko **checkbox task list** me convert kar deta hoon jo tum VS Code me paste karke track kar sako.

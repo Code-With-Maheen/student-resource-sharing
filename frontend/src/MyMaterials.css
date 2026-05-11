@@ -1,0 +1,149 @@
+.materials-section {
+  margin-top: 0;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.materials-section h1 {
+  font-size: 26px;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.muted-text {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.empty-text {
+  margin-top: 18px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.my-stats-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+
+.my-stats-row span {
+  background: #eef2ff;
+  color: #4338ca;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.filter-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.filter-btn,
+.upload-small-btn {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.filter-btn {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #5b5cf0, #7c72ff);
+  color: white;
+}
+
+.upload-small-btn {
+  background: #111827;
+  color: white;
+  margin-left: auto;
+}
+
+.materials-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 1000px) {
+  .materials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .materials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .upload-small-btn {
+    margin-left: 0;
+  }
+}
+
+.edit-box {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.edit-box h2 {
+  font-size: 20px;
+  margin-bottom: 14px;
+  color: #111827;
+}
+
+.edit-box input,
+.edit-box textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.edit-box textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.save-edit-btn,
+.cancel-edit-btn {
+  border: none;
+  padding: 11px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.save-edit-btn {
+  background: linear-gradient(135deg, #5b5cf0, #7c72ff);
+  color: white;
+}
+
+.cancel-edit-btn {
+  background: #f3f4f6;
+  color: #374151;
+}
